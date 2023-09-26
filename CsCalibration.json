@@ -1,0 +1,65 @@
+// Post processing input in json format
+// use //... and /* ... */ for single-line and multi-line comments
+{
+    "ChannelSettings":
+    {
+        "Defaults":
+        {
+            "CoMPASSVersion": 1,
+            "MaxNumPulses": 1000000,
+            "Polarity": "negative",
+            "Dynamicrange": 0.5,
+            "TimeStep": 4,
+            "Resolution": 14,
+            "DCOffset": 0.2,
+            "BaselineSamples": 1024,
+            "SavePulses": 0, // number of pulses to be saved
+
+            "PreTrigger": 192,
+            "Gates": {
+                "PreGate": 136,
+                "ShortGate":40,
+                "LongGate": 400
+            },
+
+            "PlotPulses":{
+                "Good pulses": {
+                    "ON": true,
+                    "Number": 100
+                },
+                "Rejected pulses": {
+                    "ON": true,
+                    "Number": 100
+                }
+            },
+
+            "Plot Pulse Height Distribution": {
+                "ON":true,
+                "Calibrated": false,
+                "xmin": 0,
+                "xmax": 2,
+                "Bins": 150
+            },
+
+            "Plot Pulse Integral Distribution": {
+                "ON":true,
+                "Calibrated": false,
+                "xmin": 0,
+                "xmax": 10,
+                "Bins": 150
+            }
+        },
+        "ChannelSpecific":[
+            {
+                "ON": true,
+                "ChannelNumber": 4,
+                "Path": "testdata/DataR_CH4@DT5725_1621_run_31.bin"
+            },
+            {
+                "ON": true,
+                "ChannelNumber": 6,
+                "Path": "testdata/DataR_CH6@DT5725_1621_run_31.bin"
+            }
+        ]
+    }
+}

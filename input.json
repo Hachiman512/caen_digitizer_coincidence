@@ -1,0 +1,150 @@
+// Post processing input in json format
+// use //... and /* ... */ for single-line and multi-line comments
+{
+    "ChannelSettings":
+    {
+        "Defaults":
+        {
+            "CoMPASSVersion": 1,
+            "MaxNumPulses": 1000000,
+           // "MaxTimeStamp": 100000000,
+            "Polarity": "negative",
+            "Dynamicrange": 0.5,
+            "TimeStep": 4,
+            "Resolution": 14,
+            "DCOffset": 0.2,
+            "BaselineSamples": 1024,
+            "SavePulses": 10, // number of pulses to be saved
+
+            "PreTrigger": 192,
+            "Gates": {
+                "PreGate": 136,
+                "ShortGate":40,
+                "LongGate": 400
+            },
+            
+            "Calibration": {
+                "Integral": {
+                    "ON": false,
+                    "Coefficient": 100.0
+                },
+                "Height": {
+                    "ON": false,
+                    "Coefficient": 100.0
+                }
+            },
+
+            "Rejection": {
+                "ON": false,
+                "ZeroSupression": false,
+                "LowVoltageThreshold": 0.05,
+                "ClipRejection": false,
+                "PileupRejection": {
+                    "ON": false,
+                    "RiseTime": 10, // ns
+                    "MinimumPeakRatio": 0.1,
+                    "MinimumPeakHeight": 0.015 // Volt
+                }
+            },
+
+            "EnergyCut": {
+                "ON": false,
+                "LowerThreshold": 600.0,
+                "UpperThreshold": 2000.0
+            },
+
+            "PSDCut": {
+                "ON": false,
+                "LazyCut": true,
+                "LowerThreshold": 0.0,
+                "UpperThreshold": 1.0,
+
+                "QuadraticCut": false,
+                "QuadracticCoefficients": [0.0,0.0,0.5]
+            },
+            
+            "Timing": {
+                "ON": true,
+                "Method": "DCFD", //DCFD
+                "Interpolation": 8,
+                "Fraction": 0.75,
+                "TimeDelay": 24 
+            },
+
+            "PlotPulses":{
+                "Good pulses": {
+                    "ON": true,
+                    "Number": 2
+                },
+                "Rejected pulses": {
+                    "ON": true,
+                    "Number": 100
+                }
+            },
+
+            "Plot Pulse Height Distribution": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "Bins": 100
+            },
+
+            "Plot Pulse Integral Distribution": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "Bins": 100
+            },
+
+            "Plot PSD": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "XBins": 100,
+                "ymin": 0,
+                "ymax": 1.0,
+                "YBins": 100
+            }
+        },
+        "ChannelSpecific":[
+            {
+                "ChannelNumber": 4,
+                "ON": true,
+                "Path": "testdata/DataR_CH4@DT5725_1621_run_31.bin",
+                "Calibration": {
+                    "Integral": {
+                        "ON": false,
+                        "Coefficient": 152.0356
+                    }
+                }
+            },
+            {
+                "ChannelNumber": 6,
+                "ON": true,
+                "Path": "testdata/DataR_CH6@DT5725_1621_run_31.bin",
+                "Calibration": {
+                    "Integral": {
+                        "ON": false,
+                        "Coefficient": 151.746
+                    }
+                }
+            }
+        ]
+    },
+    "CoincidenceSettings": 
+    {
+        "ON": true,
+        "CoincidenceChannels": [4, 6],
+        "TimeWindow": 50,
+        "SaveTimeDifference": true,
+        "PlotTOF": {
+            "ON": true,
+            "xmin": -10,
+            "xmax": 10,
+            "Bins": 500
+        }
+    }
+}
