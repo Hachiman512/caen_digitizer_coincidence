@@ -1,0 +1,144 @@
+// Post processing input in json format
+// use //... and /* ... */ for single-line and multi-line comments
+{
+    "ChannelSettings":
+    {
+        "Defaults":
+        {
+            "CoMPASSVersion": 1,
+            "MaxNumPulses": 10000000,
+            "Polarity": "negative",
+            "Dynamicrange": 0.5,
+            "TimeStep": 4,
+            "Resolution": 14,
+            // "SaveHeaders": [false, false, false, false, false, false, false],
+            "DCOffset": 0.2,
+            "BaselineSamples": 1024,
+            "SavePulses": 0, // number of pulses to be saved
+
+            "PreTrigger": 192,
+            "Gates": {
+                "PreGate": 136,
+                "ShortGate":40,
+                "LongGate": 400
+            },
+            
+            "Calibration": {
+                "Integral": {
+                    "ON": false,
+                    "Coefficient": 100.0
+                },
+                "Height": {
+                    "ON": false,
+                    "Coefficient": 100.0
+                }
+            },
+
+            "Rejection": {
+                "ON": false,
+                "ZeroSupression": true,
+                "LowVoltageThreshold": 0.05,
+                "ClipRejection": true
+            },
+
+            "EnergyCut": {
+                "ON": false,
+                "LowerThreshold": 500.0,
+                "UpperThreshold": 2000.0
+            },
+
+            "PSDCut": {
+                "ON": false,
+                "LazyCut": false,
+                "LowerThreshold": 0.0,
+                "UpperThreshold": 1.0,
+
+                "QuadraticCut": false,
+                "QuadracticCoefficients": [0.0,0.0,0.5]
+            },
+            
+            "Timing": {
+                "ON": true,
+                "Method": "DCFD", //DCFD
+                "Interpolation": 8,
+                "Fraction": 0.75,
+                "TimeDelay": 20 
+            },
+
+            "PlotPulses":{
+                "Good pulses": {
+                    "ON": true,
+                    "Number": 100
+                },
+                "Rejected pulses": {
+                    "ON": true,
+                    "Number": 100
+                }
+            },
+
+            "Plot Pulse Height Distribution": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "Bins": 100
+            },
+
+            "Plot Pulse Integral Distribution": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "Bins": 100
+            },
+
+            "Plot PSD": {
+                "ON":true,
+                "Calibrated": true,
+                "xmin": 0,
+                "xmax": 1000,
+                "XBins": 100,
+                "ymin": 0,
+                "ymax": 1.0,
+                "YBins": 100
+            }
+        },
+        "ChannelSpecific":[
+            {
+                "ON": true,
+                "ChannelNumber": 4,
+                "Path": "testdata/DataR_CH4@DT5725_1621_run_28.bin",
+                "Calibration": {
+                    "Integral": {
+                        "ON": true,
+                        "Coefficient": 152.0356
+                    }
+                }
+            },
+            {
+                "ON": true,
+                "ChannelNumber": 6,
+                "Path": "testdata/DataR_CH6@DT5725_1621_run_28.bin",
+                "Calibration": {
+                    "Integral": {
+                        "ON": true,
+                        "Coefficient": 151.746
+                    }
+                }
+            }
+        ]
+    },
+    "CoincidenceSettings": 
+    {
+        "ON": true,
+        "CoincidenceChannels": [4,6],
+        "TimeWindow": 50,
+        "SaveTimeDifference": true,
+        "PlotTOF": {
+            "ON": true,
+            "xmin": -10,
+            "xmax": 10,
+            "Bins": 500
+        }
+    }
+}
